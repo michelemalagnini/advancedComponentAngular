@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 
 interface Product {
@@ -85,6 +85,8 @@ interface Product {
       [ngTemplateOutlet]="anotherTemplate"
       [ngTemplateOutletContext]="{ name: 'Mike' }"
     ></ng-container>
+    <hr />
+    <button (click)="changeColor()">Change Color</button>
   </app-blog-post>`,
   styleUrls: [],
 })
@@ -98,4 +100,12 @@ export class AppComponent {
   ];
   showTemplate: boolean = true;
   value: string = 'A'; //'B';
+
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+
+  changeColor() {
+    const button = this.elementRef.nativeElement.querySelector('button');
+    this.renderer.setStyle(button, 'background-color', 'blue');
+    this.renderer.setStyle(button, 'color', 'white');
+  }
 }
