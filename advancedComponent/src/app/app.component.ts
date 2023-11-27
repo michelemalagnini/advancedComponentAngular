@@ -13,6 +13,7 @@ interface Product {
     date="01/11/202221"
   >
     <div class="blog-post-content">
+      <h2>ng content</h2>
       <p>
         Siamo in texas è un venerdi sera e l'Orbit è stipato di gente che
         sgomita per pop corn e Coca-cola, pregustando la Grande notte Horro
@@ -28,6 +29,7 @@ interface Product {
       </ul>
     </div>
     <hr />
+    <h2>ng container</h2>
     <div>
       <ul>
         <!-- in this case we create 5 span element the dom do not care about false or true -->
@@ -44,6 +46,35 @@ interface Product {
         >
       </ul>
     </div>
+    <hr />
+    <h2>ng template ngIf example</h2>
+    <ng-template #myTemplate>
+      <p>This template is rendered conditionally.</p>
+    </ng-template>
+    <div *ngIf="showTemplate; then myTemplate"></div>
+    <hr />
+    <h2>ng template ngSwitch example</h2>
+
+    <ng-template #templateOne>
+      <p>This is template one.</p>
+    </ng-template>
+
+    <ng-template #templateTwo>
+      <p>This is template two.</p>
+    </ng-template>
+
+    <div [ngSwitch]="value">
+      <div *ngSwitchCase="'A'">
+        <ng-container [ngTemplateOutlet]="templateOne"></ng-container>
+      </div>
+      <div *ngSwitchCase="'B'">
+        <ng-container [ngTemplateOutlet]="templateTwo"></ng-container>
+      </div>
+      <div *ngSwitchCase="'B'">
+        <ng-container [ngTemplateOutlet]="templateTwo"></ng-container>
+      </div>
+      <div *ngSwitchDefault>default value</div>
+    </div>
   </app-blog-post>`,
   styleUrls: [],
 })
@@ -55,4 +86,6 @@ export class AppComponent {
     { productName: 'Eraser', available: false },
     { productName: 'School Bag', available: true },
   ];
+  showTemplate: boolean = true;
+  value: string = 'C'; //'A'; //'B';
 }
