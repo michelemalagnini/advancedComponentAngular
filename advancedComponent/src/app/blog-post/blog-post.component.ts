@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
     <p class="date">{{ date }}</p>
     <ng-content select=".blog-post-content"></ng-content>
     <ng-content select=".blog-post-sidebar"></ng-content>
+    <ng-content></ng-content>
   </div>`,
   styleUrls: [],
 })

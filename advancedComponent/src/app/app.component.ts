@@ -22,6 +22,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         <li>quattro</li>
       </ul>
     </div>
+    <div>rest without selector</div>
   </app-blog-post>`,
   styleUrls: [],
 })
