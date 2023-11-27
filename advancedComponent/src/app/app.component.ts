@@ -83,7 +83,7 @@ interface Product {
 
     <ng-container
       [ngTemplateOutlet]="anotherTemplate"
-      [ngTemplateOutletContext]="{ name: 'Atakan' }"
+      [ngTemplateOutletContext]="{ name: 'Mike' }"
     ></ng-container>
   </app-blog-post>`,
   styleUrls: [],
