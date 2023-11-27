@@ -75,6 +75,16 @@ interface Product {
       </div>
       <div *ngSwitchDefault>default value</div>
     </div>
+    <hr />
+    <h2>ngTemplateOutlet ngTemplateOutletContext</h2>
+    <ng-template #anotherTemplate let-name="name">
+      <p>Hello, {{ name }}!</p>
+    </ng-template>
+
+    <ng-container
+      [ngTemplateOutlet]="anotherTemplate"
+      [ngTemplateOutletContext]="{ name: 'Atakan' }"
+    ></ng-container>
   </app-blog-post>`,
   styleUrls: [],
 })
@@ -87,5 +97,5 @@ export class AppComponent {
     { productName: 'School Bag', available: true },
   ];
   showTemplate: boolean = true;
-  value: string = 'C'; //'A'; //'B';
+  value: string = 'A'; //'B';
 }
